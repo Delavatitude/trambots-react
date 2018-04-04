@@ -22,6 +22,12 @@
   font-size: large;
 }
 
+.card {
+  height: 120px;
+  margin-left: 5px;
+  margin-top: 10px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

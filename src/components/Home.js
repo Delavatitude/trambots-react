@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Card from './Card.js';
+import Cards from './Card.js';
 import './../App.css';
 
 class Home extends Component {
@@ -13,7 +13,7 @@ class Home extends Component {
 
   componentDidMount() {
     const token = "f83dfac2-6962-4cc8-a33a-70252aacfe67";
-    const endpoint = "api.navitia.io/v1/coverage/fr-sw/stop_areas?";
+    const endpoint = "api.navitia.io/v1/coverage/fr-sw/physical_modes/physical_mode%3ATramway/stop_areas?";
     fetch('https://'+endpoint, {
       method: 'GET',
       headers: {
@@ -34,18 +34,18 @@ class Home extends Component {
   }
 
   render() {
-    console.log(this.state.places);
     return (
-      !this.state.places ? (
-        <p>Loading</p>
-      ) : (
-          this.state.places.map((area) => {
-            return <Card
-              label={area.label}
-              timezone={area.timezone}
-            />
-          })
-      )
+        !this.state.places ? (
+          <p>Loading</p>
+        ) : (
+            this.state.places.map((area) => {
+              return <Cards
+                label={area.name}
+                timezone={area.timezone}
+                adminRegion={area.administrative_regions[0].name}
+              />
+            })
+        )
     );
   }
 }
