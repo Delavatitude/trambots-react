@@ -6,6 +6,10 @@ How to install :
 * `npm install` to download dependencies.
 * `npm start` to launch the project.
 
+Other tips :
+
+* `npm run commit` to start comitizen and do greats commits ! Yeah :D
+
 ## Folder Structure
 
 After creation, your project should look like this:
