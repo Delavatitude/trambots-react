@@ -7,11 +7,8 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Header></Header>
-        <div className="container-fluid">
-          <div className="row col-12">
+        <div className="">
             <Home></Home>
-          </div>
         </div>
       </div>
     );

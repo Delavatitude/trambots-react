@@ -6,12 +6,20 @@ class Header extends Component {
 
   render() {
     return (
-        <nav className="navbar navbar-dark bg-warning justify-content-between">
-          <a className="navbar-brand text-white">TramBots</a>
-          <form className="form-inline">
-            <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-          </form>
-        </nav>
+      <header class="content-wrapper">
+        <a href="https://community.algolia.com/instantsearch.js/" class="is-logo"></a>
+        <a href="./" class="logo">TramBots</a>
+        <div class="input-group">
+          <section id="search">
+            <label for="search-input">
+              <span className="sr-only">Search icons</span>
+            </label>
+            <a id="search-clear" href="#" className="fa fa-times-circle hide" aria-hidden="true" >
+              <span className="clear-all"></span>
+            </a>
+          </section>
+        </div>
+      </header>
     );
   }
 }
