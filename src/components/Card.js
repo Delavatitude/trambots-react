@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import { Button, Navbar, FormGroup, FormControl } from 'react-bootstrap';
+import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom';
+import Header from './Header.js';
 import './../App.css';
 
-class Card extends Component {
+class Aera extends Component {
 
   constructor() {
     super()
@@ -13,7 +14,7 @@ class Card extends Component {
 
   componentDidMount() {
     const token = "f83dfac2-6962-4cc8-a33a-70252aacfe67";
-    const endpoint = "api.navitia.io/v1/coverage/fr-sw/physical_modes/physical_mode%3ATramway/stop_areas/stop_area";
+    const endpoint = "api.navitia.io/v1/coverage/fr-sw/physical_modes/physical_mode%3ATramway/stop_areas/stop_area"+this.props.id;
     fetch('https://'+endpoint, {
       method: 'GET',
       headers: {
@@ -29,20 +30,21 @@ class Card extends Component {
           </div>
         )
       })
-      this.setState({places: data.stop_areas})
+      this.setState({places: data.stop_areas[0]})
     })
   }
 
   render() {
+    console.log("yo", this.state.places);
     return (
-        <div className="card">
-          <div className="card-body">
-            <h5 className="card-title">{this.state.places.label}</h5>
-            <h6 className="card-subtitle mb-2 text-muted">{this.state.places.administrative_regions[0].name}</h6>
-          </div>
+      <div>
+        <Header />
+        <div className="results-wrapper">
+          <h1>{this.state.places.label}</h1>
         </div>
+      </div>
     );
   }
 }
 
-export default Card;
+export default Aera;

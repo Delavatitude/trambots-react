@@ -23,7 +23,7 @@ class Search extends Component {
           <div className="picture-wrapper">
               <span className="stop">
                 <Link
-                  to={`/card/${hit.name}`}>
+                  to={`/area/${hit.code}`}>
                   <Highlight attribute="stop" hit={hit} />
                 </Link>
               </span>
@@ -34,7 +34,7 @@ class Search extends Component {
               <Highlight attribute="mode" hit={hit} />
             </div>
             <div className="img_ligne">
-              <img src=""></img>
+              <img src={hit.image_ligne}></img>
             </div>
           </div>
         </article>
