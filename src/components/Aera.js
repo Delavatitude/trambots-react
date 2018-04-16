@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom';
-import Header from './Header.js';
-import './../App.css';
+import Header from './Header.js'
+import './../App.css'
 
 class Aera extends Component {
 
@@ -14,7 +13,7 @@ class Aera extends Component {
 
   componentDidMount() {
     const token = "f83dfac2-6962-4cc8-a33a-70252aacfe67";
-    const endpoint = "api.navitia.io/v1/coverage/fr-sw/physical_modes/physical_mode%3ATramway/stop_areas/stop_area"+this.props.id;
+    const endpoint = "api.navitia.io/v1/coverage/"+this.props.coords+"/physical_modes/physical_mode%3ATramway/stop_areas/stop_area"+this.props.id+"/stop_schedules?";
     fetch('https://'+endpoint, {
       method: 'GET',
       headers: {
@@ -23,28 +22,30 @@ class Aera extends Component {
     }).then(results => {
       return results.json();
     }).then(data => {
-      let places = data.stop_areas.map((area) => {
+      let places = data.stop_schedules.map((area) => {
         return(
           <div>
-            area.label
+            <h1>{area.stop_point.label}</h1>
+            <p>{area.display_informations.direction}</p>
+            <p>{area.display_informations.name}</p>
           </div>
         )
       })
-      this.setState({places: data.stop_areas[0]})
+      this.setState({places: places })
     })
   }
 
   render() {
-    console.log("yo", this.state.places);
     return (
       <div>
         <Header />
         <div className="results-wrapper">
-          <h1>{this.state.places.label}</h1>
+          <p>{this.state.places}</p>
         </div>
       </div>
     );
   }
+
 }
 
 export default Aera;

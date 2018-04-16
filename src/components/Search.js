@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from './Header.js';
-import Modal from 'react-responsive-modal';
-import { InstantSearch,
+import {
   Hits,
   SearchBox,
   Highlight,
@@ -15,6 +14,37 @@ import './../App.css';
 
 class Search extends Component {
 
+  constructor() {
+    super()
+    this.state = {
+      places: [],
+      lat_long: {
+        coord: []
+      }
+    }
+  }
+
+  componentDidMount() {
+
+    // const token = "f83dfac2-6962-4cc8-a33a-70252aacfe67";
+    // const endpoint = "api.navitia.io/v1/coverage/fr-idf/physical_modes/physical_mode%3ATramway/routes/route%3AOIF%3A800%3AT4_R/route_schedules?";
+
+  //   fetch('https://'+endpoint, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Authorization': token
+  //     }
+  //   }).then(results => {
+  //     return results.json();
+  //   }).then(data => {
+  //     let coords = data.route_schedules.map((ligne) => {
+  //       let rows = ligne.table.rows.map((row) => {
+  //         console.log(row.stop_point.coord)
+  //       })
+  //     })
+  //   })
+   }
+
   render() {
 
     function Product({ hit }) {
@@ -23,7 +53,7 @@ class Search extends Component {
           <div className="picture-wrapper">
               <span className="stop">
                 <Link
-                  to={`/area/${hit.code}`}>
+                  to={`/aera/${hit.code}/${hit.lat};${hit.lng}`}>
                   <Highlight attribute="stop" hit={hit} />
                 </Link>
               </span>
@@ -34,7 +64,7 @@ class Search extends Component {
               <Highlight attribute="mode" hit={hit} />
             </div>
             <div className="img_ligne">
-              <img src={hit.image_ligne}></img>
+              <img src={hit.image_ligne} alt="yo"></img>
             </div>
           </div>
         </article>
@@ -63,7 +93,7 @@ class Search extends Component {
         <section id="search">
             <label><i className="fa fa-search" aria-hidden="true"></i><span className="sr-only">Search icons</span></label>
             <SearchBox />
-            <a id="search-clear" href="#" className="fa fa-times-circle hide" aria-hidden="true" ><span className="clear-all"></span></a>
+            <a id="search-clear" className="fa fa-times-circle hide" aria-hidden="true" ><span className="clear-all"></span></a>
           </section>
 
         <div className="results-wrapper">

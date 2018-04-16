@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Home from './Home.js';
-import Header from './Header.js';
 import './../App.css';
 
 class Main extends Component {
