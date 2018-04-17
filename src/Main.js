@@ -9,7 +9,7 @@ const Main = () => (
     <Switch>
       <Route exact path='/' component={MainComponent}/>
       <Route path = '/home' component={Home}/>
-      <Route path='/aera/:id/:coords' render={props =>
+      <Route path='/stop/:id/:coords' render={props =>
         <div>
           <Aera id={props.match.params.id} coords={props.match.params.coords}/>
         </div> }

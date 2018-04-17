@@ -18,6 +18,12 @@ li {
   color: white;
 }
 
+.mapGoogle {
+  width: 400px;
+  height: 400px;
+  float: left;
+}
+
 .App-title {
   font-size: 1.5em;
 }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Header from './Header.js'
 import './../App.css'
+import Moment from 'react-moment'
+import MapContainer from './MapContainer.js'
 
 class Aera extends Component {
 
@@ -12,8 +14,10 @@ class Aera extends Component {
   }
 
   componentDidMount() {
+
     const token = "f83dfac2-6962-4cc8-a33a-70252aacfe67";
     const endpoint = "api.navitia.io/v1/coverage/"+this.props.coords+"/physical_modes/physical_mode%3ATramway/stop_areas/stop_area"+this.props.id+"/stop_schedules?";
+
     fetch('https://'+endpoint, {
       method: 'GET',
       headers: {
@@ -26,8 +30,13 @@ class Aera extends Component {
         return(
           <div>
             <h1>{area.stop_point.label}</h1>
-            <p>{area.display_informations.direction}</p>
-            <p>{area.display_informations.name}</p>
+            <div><b>Direction :</b> {area.display_informations.direction}</div>
+            <div>{area.display_informations.name}</div>
+            <div> Prochain tram dans :
+              <span> <Moment fromNow ago>{area.date_times[0].date_time}</Moment></span>,
+              <span> <Moment fromNow ago>{area.date_times[1].date_time}</Moment></span>,
+              <span> <Moment fromNow ago>{area.date_times[2].date_time}</Moment></span>
+            </div>
           </div>
         )
       })
@@ -36,13 +45,20 @@ class Aera extends Component {
   }
 
   render() {
+    let coordonnees = this.props.coords.split(";");
+    let lng = Number(coordonnees[0]);
+    let lat = Number(coordonnees[1]);
+
     return (
-      <div>
-        <Header />
-        <div className="results-wrapper">
-          <p>{this.state.places}</p>
+        <div>
+          <Header />
+          <div className="results-wrapper">
+            <div>{this.state.places}</div>
+          </div>
+          <div className="mapGoogle">
+            <MapContainer lat={lat} lng={lng}/>
+          </div>
         </div>
-      </div>
     );
   }
 

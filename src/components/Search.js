@@ -53,7 +53,7 @@ class Search extends Component {
           <div className="picture-wrapper">
               <span className="stop">
                 <Link
-                  to={`/aera/${hit.code}/${hit.lat};${hit.lng}`}>
+                  to={`/stop/${hit.code}/${hit.lat};${hit.lng}`}>
                   <Highlight attribute="stop" hit={hit} />
                 </Link>
               </span>
