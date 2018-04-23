@@ -3,6 +3,7 @@ import Header from './Header.js'
 import './../App.css'
 import Moment from 'react-moment'
 import MapContainer from './MapContainer.js'
+import signal from './../wifi-signal.png'
 
 class Aera extends Component {
 
@@ -28,19 +29,23 @@ class Aera extends Component {
     }).then(data => {
       let places = data.stop_schedules.map((area) => {
         return(
-          <div>
-            <h1>{area.stop_point.label}</h1>
-            <div><b>Direction :</b> {area.display_informations.direction}</div>
-            <div>{area.display_informations.name}</div>
-            <div> Prochain tram dans :
-              <span> <Moment fromNow ago>{area.date_times[0].date_time}</Moment></span>,
-              <span> <Moment fromNow ago>{area.date_times[1].date_time}</Moment></span>,
-              <span> <Moment fromNow ago>{area.date_times[2].date_time}</Moment></span>
+          <div className="card border-bottom rounded-0">
+            <div className="card-body">
+              <div className="text-pink">{area.stop_point.label}</div>
+              <div className="">Direction : {area.display_informations.direction}</div>
+              <div>{area.display_informations.name}</div>
+              <div><img src={signal} /> :
+                <span> <Moment fromNow ago>{area.date_times[0].date_time}</Moment></span>,
+                <span> <Moment fromNow ago>{area.date_times[1].date_time}</Moment></span>,
+                <span> <Moment fromNow ago>{area.date_times[2].date_time}</Moment></span>
+              </div>
             </div>
           </div>
         )
       })
       this.setState({places: places })
+    }).catch(function(error) {
+        console.log(error);
     })
   }
 
@@ -52,11 +57,19 @@ class Aera extends Component {
     return (
         <div>
           <Header />
-          <div className="results-wrapper">
-            <div>{this.state.places}</div>
-          </div>
-          <div className="mapGoogle">
-            <MapContainer lat={lat} lng={lng}/>
+          <div className="container-fluid h-100">
+            <div className="row row-area">
+              <div className="col-4 result-area">
+                <div className="results-wrapper margintop">
+                  <div>{this.state.places}</div>
+                </div>
+              </div>
+              <div className="col-8 result2-area">
+                  <div className="map-area">
+                    <MapContainer lat={lat} lng={lng}/>
+                  </div>
+              </div>
+            </div>
           </div>
         </div>
     );

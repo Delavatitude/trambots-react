@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
 import './../App.css';
+import logo from './../logo.png';
 
 class Header extends Component {
 
   render() {
     return (
-      <header className="content-wrapper">
-        <a href="./" className="logo">TramBots</a>
-        <div className="input-group">
-          <section id="search">
-            <a id="search-clear" className="fa fa-times-circle hide" aria-hidden="true" >
-              <span className="clear-all"></span>
-            </a>
-          </section>
+      <header className="navbar navbar-expand-lg navbar-warning bg-warning fixed-top">
+        <img src={logo} className="logo"/>
+        <a href="/" className="navbar-brand text-white mx-auto">TramBots</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
         </div>
       </header>
     );

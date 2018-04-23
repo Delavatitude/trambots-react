@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from './Header.js';
+import './../App.css';
 import {
   Hits,
   SearchBox,
@@ -24,83 +25,68 @@ class Search extends Component {
     }
   }
 
-  componentDidMount() {
-
-    // const token = "f83dfac2-6962-4cc8-a33a-70252aacfe67";
-    // const endpoint = "api.navitia.io/v1/coverage/fr-idf/physical_modes/physical_mode%3ATramway/routes/route%3AOIF%3A800%3AT4_R/route_schedules?";
-
-  //   fetch('https://'+endpoint, {
-  //     method: 'GET',
-  //     headers: {
-  //       'Authorization': token
-  //     }
-  //   }).then(results => {
-  //     return results.json();
-  //   }).then(data => {
-  //     let coords = data.route_schedules.map((ligne) => {
-  //       let rows = ligne.table.rows.map((row) => {
-  //         console.log(row.stop_point.coord)
-  //       })
-  //     })
-  //   })
-   }
-
   render() {
 
     function Product({ hit }) {
       return (
-        <article className="hit">
-          <div className="picture-wrapper">
-              <span className="stop">
+        <div className="">
+          <div className="">
+              <span className="">
                 <Link
                   to={`/stop/${hit.code}/${hit.lat};${hit.lng}`}>
                   <Highlight attribute="stop" hit={hit} />
                 </Link>
               </span>
-            <div className="city">
+            <div className="">
               <Highlight attribute="city" hit={hit} />
             </div>
-            <div className="mode">
+            <div className="">
               <Highlight attribute="mode" hit={hit} />
             </div>
-            <div className="img_ligne">
+            <div className="">
               <img src={hit.image_ligne} alt="yo"></img>
             </div>
           </div>
-        </article>
+        </div>
       );
     }
 
     return (
-      <div className="">
-        <Header />
-        <aside>
-          <div id="clear-all"></div>
-            <div className="facet-category-title facet">Filtres :</div>
-          <section className="facet-wrapper">
-            <div className="facet-category-title"></div>
-            <div id="city" className="facet">
-              <RefinementList attribute="city" />
+      <div>
+      <Header />
+        <div className="container-fluid">
+          <row>
+            <div id="aside" className="border-right" alt="aside">
+              <nav className="options">
+                <div id="clear-all"></div>
+                <div className="">Filtres :</div>
+                <div className="">
+                  <div id="categories">
+                    <CurrentRefinements />
+                    <ClearRefinements />
+                    <div id="city" className="facet">
+                      <RefinementList attribute="ligne" />
+                    </div>
+                  </div>
+                </div>
+                <div className="">Data inventory of <a href="http://www.facebots.fr/">facebots.fr</a></div>
+              </nav>
             </div>
-            <div id="categories">
-              <CurrentRefinements />
-              <ClearRefinements />
+
+            <div id="content">
+              <div className="container-fluid">
+                  <div className="search">
+                      <SearchBox />
+                  </div>
+                  <div class="pagination">
+                    <Pagination />
+                  </div>
+                  <div className="container hitList">
+                    <Hits hitComponent={Product} />
+                  </div>
+              </div>
             </div>
-          </section>
-          <div className="thank-you">Data inventory of <a href="http://www.facebots.fr/">facebots.fr</a></div>
-        </aside>
-
-        <section id="search">
-            <label><i className="fa fa-search" aria-hidden="true"></i><span className="sr-only">Search icons</span></label>
-            <SearchBox />
-            <a id="search-clear" className="fa fa-times-circle hide" aria-hidden="true" ><span className="clear-all"></span></a>
-          </section>
-
-        <div className="results-wrapper">
-            <Hits hitComponent={Product} />
-          <section id="pagination">
-            <Pagination />
-          </section>
+          </row>
         </div>
       </div>
     );

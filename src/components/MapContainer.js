@@ -7,17 +7,16 @@ export class MapContainer extends Component {
 
     const lat = Number(this.props.lat);
     const lng = Number(this.props.lng);
-    console.log(lat, lng);
+
     return (
-      <Map google={this.props.google} zoom={17} initialCenter={{
+      <Map google={this.props.google} zoom={16} initialCenter={{
             lat: lat,
             lng: lng
           }}>
 
         <Marker onClick={this.onMarkerClick}
                 name={'Current location'}
-              />
-
+        />
       </Map>
     );
   }
