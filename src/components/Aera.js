@@ -4,6 +4,7 @@ import './../App.css'
 import Moment from 'react-moment'
 import MapContainer from './MapContainer.js'
 import signal from './../wifi-signal.png'
+import direction from './../direction.png'
 
 class Aera extends Component {
 
@@ -32,7 +33,7 @@ class Aera extends Component {
           <div className="card border-bottom rounded-0">
             <div className="card-body">
               <div className="text-pink">{area.stop_point.label}</div>
-              <div className="">Direction : {area.display_informations.direction}</div>
+              <div className=""><img src={direction} /> {area.display_informations.direction}</div>
               <div>{area.display_informations.name}</div>
               <div><img src={signal} /> :
                 <span> <Moment fromNow ago>{area.date_times[0].date_time}</Moment></span>,

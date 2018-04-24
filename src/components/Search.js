@@ -9,7 +9,8 @@ import {
   RefinementList,
   Pagination,
   CurrentRefinements,
-  ClearRefinements
+  ClearRefinements,
+  Menu
 } from 'react-instantsearch/dom';
 import './../App.css';
 
@@ -29,7 +30,7 @@ class Search extends Component {
 
     function Product({ hit }) {
       return (
-        <div className="">
+        <div className="hit">
           <div className="">
               <span className="">
                 <Link
@@ -58,16 +59,15 @@ class Search extends Component {
           <row>
             <div id="aside" className="border-right" alt="aside">
               <nav className="options">
-                <div id="clear-all"></div>
+                <div id="clear-all">
+                  <ClearRefinements />
+                </div>
                 <div className="">Filtres :</div>
-                <div className="">
-                  <div id="categories">
-                    <CurrentRefinements />
-                    <ClearRefinements />
-                    <div id="city" className="facet">
-                      <RefinementList attribute="ligne" />
-                    </div>
+                <div id="categories">
+                  <div id="city" className="">
+                    <RefinementList attribute="city" />
                   </div>
+                  <CurrentRefinements />
                 </div>
                 <div className="">Data inventory of <a href="http://www.facebots.fr/">facebots.fr</a></div>
               </nav>

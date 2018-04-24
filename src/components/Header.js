@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './../App.css';
-import logo from './../logo.png';
+import logo from './../trambot.png';
 
 class Header extends Component {
 
@@ -8,9 +8,7 @@ class Header extends Component {
     return (
       <header className="navbar navbar-expand-lg navbar-warning bg-warning fixed-top">
         <img src={logo} className="logo"/>
-        <a href="/" className="navbar-brand text-white mx-auto">TramBots</a>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        </div>
+        <a href="/" className="navbar-brand text-white pull-right">TramBots</a>
       </header>
     );
   }

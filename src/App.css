@@ -16,13 +16,14 @@ body {
 }
 
 .logo{
-  width: 140px;
+  width: 40px;
+  margin-left: 10px;
+  margin-right: 20px;
 }
 
 .map-area {
   margin-top: 56px;
   margin-left: -10px;
-  padding-bottom: -56px;
 }
 
 .text-pink {
@@ -62,8 +63,8 @@ body {
   position: fixed;
   z-index: 10;
   top: 0px;
-  right: 0;
-  bottom: 0;
+  right: 5px;
+  bottom: 55px;
 }
 
 .search {
@@ -87,7 +88,8 @@ body {
 
 #content {
   margin-top: 20px;
-  margin-left: 200px;
+  margin-left: 170px;
+
   float: left;
   width: 84%;
 }
@@ -179,25 +181,76 @@ body {
   background: none;
 }
 
-@media(min-width:768px) {
-  #wrapper {
-    padding-left: 0;
+@media(max-width:360px) {
+  .ais-Pagination {
+    width: 100%;
+    margin-left: -20px;
   }
-  #wrapper.toggled {
-    padding-left: 250px;
+
+  .ais-Hits-item {
+    margin-left: -5px;
   }
-  #sidebar-wrapper {
-    width: 0;
+}
+
+@media(max-width:768px) {
+  header {
   }
-  #wrapper.toggled #sidebar-wrapper {
-    width: 250px;
+
+  .result-area {
+    position:sticky;
+    width: 100%;
+    float: left;
   }
-  #page-content-wrapper {
-    padding: 20px;
-    position: relative;
+
+  .card {
+    margin: auto;
+    width: 350%;
+    float: left;
   }
-  #wrapper.toggled #page-content-wrapper {
-    position: relative;
-    margin-right: 0;
+
+  .ais-Hits-item {
+    float: left;
+    min-width: 250px;
+  }
+
+  .ais-Hits {
+    width: 90%;
+    margin:auto;
+  }
+
+  .col-8 {
+    clear: both;
+  }
+
+  .map-area {
+    margin: none;
+  }
+
+  .result2-area {
+    float: bottom;
+    position: sticky;
+    top: none;
+    bottom: none;
+    right: none;
+    z-index: 0;
+    display: none !important;
+  }
+
+  .ais-Pagination {
+    width: 100%;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  #content {
+    width: 100%;
+    margin-left: 0;
+    height: auto;
+  }
+
+  #aside {
+    display: none !important;
   }
 }

@@ -9,7 +9,7 @@ export class MapContainer extends Component {
     const lng = Number(this.props.lng);
 
     return (
-      <Map google={this.props.google} zoom={16} initialCenter={{
+      <Map google={this.props.google} zoom={17} initialCenter={{
             lat: lat,
             lng: lng
           }}>
