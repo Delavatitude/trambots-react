@@ -5,14 +5,14 @@ import './../App.css';
 import {
   Hits,
   SearchBox,
-  Highlight,
   RefinementList,
   Pagination,
   CurrentRefinements,
   ClearRefinements,
-  Menu
 } from 'react-instantsearch/dom';
 import './../App.css';
+import location from './../img/location.png';
+import navigation from './../img/navigation.png';
 
 class Search extends Component {
 
@@ -30,23 +30,15 @@ class Search extends Component {
 
     function Product({ hit }) {
       return (
-        <div className="hit">
-          <div className="">
-              <span className="">
-                <Link
-                  to={`/stop/${hit.code}/${hit.lat};${hit.lng}`}>
-                  <Highlight attribute="stop" hit={hit} />
-                </Link>
-              </span>
-            <div className="">
-              <Highlight attribute="city" hit={hit} />
-            </div>
-            <div className="">
-              <Highlight attribute="mode" hit={hit} />
-            </div>
-            <div className="">
-              <img src={hit.image_ligne} alt="yo"></img>
-            </div>
+        <div className="card">
+          <h6 className="card-header">{hit.stop}</h6>
+          <div className="card-body">
+            <p className="card-text"><img src={location} /> : {hit.city} </p>
+            <p className="card-text"><img src={navigation} /> : {hit.mode}</p>
+            <p className="card-text">Ligne : <img className="image_ligne" src={hit.image_ligne}/></p>
+              <Link to={`/stop/${hit.code}/${hit.lat};${hit.lng}`}>
+                <p className="read-more" >Voir horaires<i className="fa fa-angle-double-right ml-2"></i></p>
+              </Link>
           </div>
         </div>
       );
@@ -56,37 +48,26 @@ class Search extends Component {
       <div>
       <Header />
         <div className="container-fluid">
-          <row>
-            <div id="aside" className="border-right" alt="aside">
-              <nav className="options">
-                <div id="clear-all">
-                  <ClearRefinements />
-                </div>
-                <div className="">Filtres :</div>
-                <div id="categories">
-                  <div id="city" className="">
-                    <RefinementList attribute="city" />
-                  </div>
+          <div className="row">
+            <div className="col-md-2 d-none d-md-block bg-light sidebar" alt="aside">
+              <nav className="sidebar-sticky pt-5">
+                <ClearRefinements />
+                <div>Filtres :</div>
                   <CurrentRefinements />
-                </div>
-                <div className="">Data inventory of <a href="http://www.facebots.fr/">facebots.fr</a></div>
+                  <RefinementList
+                    attributeName="city"
+                  />
+                <div className="border-top mt-2 pt-2">Data inventory of <a href="http://www.facebots.fr/">facebots.fr</a></div>
               </nav>
             </div>
 
-            <div id="content">
-              <div className="container-fluid">
-                  <div className="search">
-                      <SearchBox />
-                  </div>
-                  <div class="pagination">
-                    <Pagination />
-                  </div>
-                  <div className="container hitList">
-                    <Hits hitComponent={Product} />
-                  </div>
-              </div>
+            <div className="col-md- ml-sm-auto col-lg-10 pt-3 px-4">
+                <Hits hitComponent={Product} />
+                <div className="pt-3 pb-3">
+                  <Pagination />
+                </div>
             </div>
-          </row>
+          </div>
         </div>
       </div>
     );
