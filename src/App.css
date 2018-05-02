@@ -41,6 +41,10 @@
     display:none !important;
   }
 
+  .text-center {
+    margin: auto;
+  }
+
 }
 
 @media (max-width:740px) {
