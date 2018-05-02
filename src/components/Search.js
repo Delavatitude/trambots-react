@@ -51,7 +51,7 @@ class Search extends Component {
       <Header />
         <div className="container-fluid">
           <div className="row">
-            <div className="col-md-2 d-none d-md-block bg-light sidebar" alt="aside">
+            <div className="col-md-2 d-none d-md-block bg-light sidebar display" alt="aside">
               <nav className="sidebar-sticky pt-5">
                 <ClearRefinements />
                 <div>Filtres :</div>

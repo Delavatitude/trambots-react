@@ -34,3 +34,23 @@
   float: left;
   min-width: 250px;
 }
+
+@media (max-width:992px) {
+
+  .display {
+    display:none !important;
+  }
+
+}
+
+@media (max-width:740px) {
+
+  .text-center {
+    margin: auto;
+  }
+
+  .display {
+    display:none;
+  }
+
+}
