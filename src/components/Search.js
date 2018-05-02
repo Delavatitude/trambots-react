@@ -30,15 +30,17 @@ class Search extends Component {
 
     function Product({ hit }) {
       return (
-        <div className="card">
-          <h6 className="card-header">{hit.stop}</h6>
-          <div className="card-body">
-            <p className="card-text"><img src={location} /> : {hit.city} </p>
-            <p className="card-text"><img src={navigation} /> : {hit.mode}</p>
-            <p className="card-text">Ligne : <img className="image_ligne" src={hit.image_ligne}/></p>
-              <Link to={`/stop/${hit.code}/${hit.lat};${hit.lng}`}>
-                <p className="read-more" >Voir horaires<i className="fa fa-angle-double-right ml-2"></i></p>
-              </Link>
+        <div className=" card-item float-left">
+          <div className="card">
+            <h6 className="card-header">{hit.stop}</h6>
+            <div className="card-body">
+              <p className="card-text"><img src={location} /> : {hit.city} </p>
+              <p className="card-text"><img src={navigation} /> : {hit.mode}</p>
+              <p className="card-text">Ligne : <img className="image_ligne" src={hit.image_ligne}/></p>
+                <Link to={`/stop/${hit.code}/${hit.lat};${hit.lng}`}>
+                  <p className="read-more" >Voir horaires<i className="fa fa-angle-double-right ml-2"></i></p>
+                </Link>
+            </div>
           </div>
         </div>
       );
@@ -62,7 +64,11 @@ class Search extends Component {
             </div>
 
             <div className="col-md- ml-sm-auto col-lg-10 pt-3 px-4">
-                <Hits hitComponent={Product} />
+                <div className="row">
+                  <div className="col-md-12 ml-sm-auto">
+                    <Hits hitComponent={Product} />
+                  </div>
+                </div>
                 <div className="pt-3 pb-3">
                   <Pagination />
                 </div>

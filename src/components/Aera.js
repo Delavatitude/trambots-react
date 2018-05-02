@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
-import Header from './Header.js'
 import './../App.css'
 import 'moment/locale/fr';
 import Moment from 'react-moment'
 import MapContainer from './MapContainer.js'
-import signal from './../img/wifi-signal.png'
-import direction from './../img/direction.png'
 import logo from './../img/trambot.png'
+import { Link } from 'react-router-dom'
 
 class Aera extends Component {
 
@@ -66,10 +64,10 @@ class Aera extends Component {
 
           <header>
             <nav className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-              <a className="navbar-brand" href="#">
-                <img src={logo} width="50" height="50" className="d-inline-block align-top ml-md-2" alt="" />
-              </a>
-              <a href="/" className="navbar-brand text-warning ml-md-3">TramBots</a>
+              <Link to={'/'}>
+                <i className="text-warning fas fa-angle-left ml-4"></i>
+              </Link>
+              <p className="navbar-brand text-warning mt-3 pr-2">TramBots</p>
             </nav>
           </header>
 
