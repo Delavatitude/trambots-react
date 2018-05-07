@@ -11,6 +11,26 @@
   box-shadow: none;
 }
 
+/* .navbar-light {
+  background: #e3f2fd;
+} */
+
+.vert-souris {
+  background: #52FCB1 !important;
+}
+
+.orange {
+  color: #fcc652 !important;
+}
+
+.violet {
+  color: #A02ECC !important;
+}
+
+.rouge {
+  color: #FF0000 !important;
+}
+
 .widthfix {
   width: 400px;
 }
@@ -33,6 +53,18 @@
   margin: auto;
   float: left;
   min-width: 250px;
+}
+
+.ais-RefinementList {
+  margin-top:10px;
+}
+
+.ais-RefinementList-labelText {
+  margin-left: 5px;
+}
+
+.ais-CurrentRefinements-category {
+  float: left;
 }
 
 @media (max-width:992px) {

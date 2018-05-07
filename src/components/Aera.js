@@ -3,7 +3,6 @@ import './../App.css'
 import 'moment/locale/fr';
 import Moment from 'react-moment'
 import MapContainer from './MapContainer.js'
-import logo from './../img/trambot.png'
 import { Link } from 'react-router-dom'
 
 class Aera extends Component {
@@ -19,7 +18,6 @@ class Aera extends Component {
 
     const token = "f83dfac2-6962-4cc8-a33a-70252aacfe67";
     const endpoint = "api.navitia.io/v1/coverage/"+this.props.coords+"/physical_modes/physical_mode%3ATramway/stop_areas/stop_area"+this.props.id+"/stop_schedules?";
-
     fetch('https://'+endpoint, {
       method: 'GET',
       headers: {
@@ -29,24 +27,43 @@ class Aera extends Component {
       return results.json();
     }).then(data => {
       let places = data.stop_schedules.map((area) => {
-        return(
-          <div className="col-md-6 float-left">
-            <div className="card border-bottom rounded-0 mt-3">
-              <div className="card-header">
-                <div className="text-info">{area.stop_point.label}</div>
+          if (area.date_times.length > 0) {
+            return(
+              <div className="col-md-6 float-left">
+                <div className="card border-bottom rounded-0 mt-3">
+                  <div className="card-header">
+                    <div className="violet">{area.stop_point.label}</div>
+                  </div>
+                  <div className="card-body">
+                    <p><i className="rouge fas fa-angle-double-right"></i> {area.display_informations.direction}</p>
+                    <p><i className="text-success fas fa-clock"></i>
+                      <span> <Moment fromNow ago>{area.date_times[0].date_time}</Moment></span> -
+                      <span> <Moment fromNow ago>{area.date_times[1].date_time}</Moment></span> -
+                      <span> <Moment fromNow ago>{area.date_times[2].date_time}</Moment></span>
+                    </p>
+                    <p>{area.display_informations.name}</p>
+                  </div>
+                </div>
               </div>
-              <div className="card-body">
-                <p><i className="fas fa-angle-double-right"></i> {area.display_informations.direction}</p>
-                <p><i className="fas fa-clock"></i>
-                  <span> <Moment fromNow ago>{area.date_times[0].date_time}</Moment></span>,
-                  <span> <Moment fromNow ago>{area.date_times[1].date_time}</Moment></span>,
-                  <span> <Moment fromNow ago>{area.date_times[2].date_time}</Moment></span>
-                </p>
-                <p>{area.display_informations.name}</p>
+            )
+          } else {
+            return (
+              <div className="col-md-6 float-left">
+                <div className="card border-bottom rounded-0 mt-3">
+                  <div className="card-header">
+                    <div className="violet">{area.stop_point.label}</div>
+                  </div>
+                  <div className="card-body">
+                    <p><i className="rouge fas fa-angle-double-right"></i> {area.display_informations.direction}</p>
+                    <p><i className="text-success fas fa-clock"></i>
+                      <span> Terminus</span>
+                    </p>
+                    <p>{area.display_informations.name}</p>
+                  </div>
+                </div>
               </div>
-          </div>
-        </div>
-        )
+            )
+          }
       })
       this.setState({places: places })
     }).catch(function(error) {
@@ -63,11 +80,11 @@ class Aera extends Component {
         <div>
 
           <header>
-            <nav className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
+            <nav className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap">
               <Link to={'/'}>
-                <i className="text-warning fas fa-angle-left ml-4"></i>
+                <i className="orange fas fa-angle-left ml-4"></i>
               </Link>
-              <p className="navbar-brand text-warning mt-3 pr-2">TramBots</p>
+              <span className="orange navbar-brand mb-o pr-2">TramBots</span>
             </nav>
           </header>
 

@@ -4,7 +4,6 @@ import Header from './Header.js';
 import './../App.css';
 import {
   Hits,
-  SearchBox,
   RefinementList,
   Pagination,
   CurrentRefinements,
@@ -34,9 +33,9 @@ class Search extends Component {
           <div className="card">
             <h6 className="card-header">{hit.stop}</h6>
             <div className="card-body">
-              <p className="card-text"><img src={location} /> : {hit.city} </p>
-              <p className="card-text"><img src={navigation} /> : {hit.mode}</p>
-              <p className="card-text">Ligne : <img className="image_ligne" src={hit.image_ligne}/></p>
+              <p className="card-text"><img src={location} alt="geoloc" /> : {hit.city} </p>
+              <p className="card-text"><img src={navigation} alt="nav"/> : {hit.mode}</p>
+              <p className="card-text">Ligne : <img className="image_ligne" src={hit.image_ligne} alt="ligne"/></p>
                 <Link to={`/stop/${hit.code}/${hit.lat};${hit.lng}`}>
                   <p className="read-more" >Voir horaires<i className="fa fa-angle-double-right ml-2"></i></p>
                 </Link>
@@ -53,11 +52,10 @@ class Search extends Component {
           <div className="row">
             <div className="col-md-2 d-none d-md-block bg-light sidebar display" alt="aside">
               <nav className="sidebar-sticky pt-5">
-                <ClearRefinements />
-                <div>Filtres :</div>
-                  <CurrentRefinements />
+                <p><ClearRefinements /></p>
+                <p>Filtres :</p>
                   <RefinementList
-                    attributeName="city"
+                    attribute="city"
                   />
                 <div className="border-top mt-2 pt-2">Data inventory of <a href="http://www.facebots.fr/">facebots.fr</a></div>
               </nav>
@@ -65,6 +63,9 @@ class Search extends Component {
 
             <div className="col-md- ml-sm-auto col-lg-10 pt-3 px-4">
                 <div className="row">
+                  <div className="col-md-12 text-secondary text-center">
+                    <p>Contactez Trambots sur messenger !</p>
+                  </div>
                   <div className="col-md-12 ml-sm-auto">
                     <Hits hitComponent={Product} />
                   </div>
