@@ -15,7 +15,9 @@ class Header extends Component {
             <img src={logo} width="50" height="50" className="d-inline-block align-top ml-md-2 ml-2" alt="" />
           </a>
           <div className="text-center">
-            <SearchBox />
+            <SearchBox
+              translations={{placeholder: 'Rechercher un arrêt !'}}
+            />
           </div>
           <a href="/" className="navbar-brand orange ml-md-3 display">TramBots</a>
         </nav>

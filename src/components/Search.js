@@ -65,7 +65,7 @@ class Search extends Component {
             <div className="col-md- ml-sm-auto col-lg-10 pt-3 px-4">
                 <div className="row">
                   <div className="col-md-12 text-secondary text-center">
-                    <p>Contactez Trambots sur messenger !</p>
+                    <p>Contactez <a href="https://m.me/trambots">TramBots</a> sur Messenger !</p>
                   </div>
                   <div className="col-md-12 ml-sm-auto">
                     <Hits hitComponent={Product} />
