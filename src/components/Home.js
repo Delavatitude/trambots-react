@@ -7,7 +7,7 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
+      <div className="h100">
         <InstantSearch
           appId="Y5DW7VHBJH"
           apiKey="9249c14668c1f512f30755afcc178558"

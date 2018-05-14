@@ -9,9 +9,9 @@ const Main = () => (
     <Switch>
       <Route exact path='/' component={MainComponent}/>
       <Route path = '/home' component={Home}/>
-      <Route path='/stop/:id/:coords' render={props =>
-        <div>
-          <Aera id={props.match.params.id} coords={props.match.params.coords}/>
+      <Route path='/stop/:label/:coords' render={props =>
+        <div className="h100">
+          <Aera label={props.match.params.label} code={props.location.code} coords={props.match.params.coords}/>
         </div> }
       />
     </Switch>

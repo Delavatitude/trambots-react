@@ -6,8 +6,6 @@ import {
   Hits,
   RefinementList,
   Pagination,
-  CurrentRefinements,
-  ClearRefinements,
 } from 'react-instantsearch/dom';
 import './../App.css';
 import location from './../img/location.png';
@@ -28,6 +26,10 @@ class Search extends Component {
   render() {
 
     function Product({ hit }) {
+      const stop = hit.stop;
+      const re = / /gi;
+      const urlStop = stop.replace(re, '_');
+      const pathAera = '/stop/'+urlStop+'/'+hit.lat+';'+hit.lng;
       return (
         <div className=" card-item float-left">
           <div className="card">
@@ -36,7 +38,7 @@ class Search extends Component {
               <p className="card-text"><img src={location} alt="geoloc" /> : {hit.city} </p>
               <p className="card-text"><img src={navigation} alt="nav"/> : {hit.mode}</p>
               <p className="card-text">Ligne : <img className="image_ligne" src={hit.image_ligne} alt="ligne"/></p>
-                <Link to={`/stop/${hit.code}/${hit.lat};${hit.lng}`}>
+                <Link to={{ pathname: pathAera, code: hit.code }} >
                   <p className="read-more" >Voir horaires<i className="fa fa-angle-double-right ml-2"></i></p>
                 </Link>
             </div>
@@ -52,8 +54,7 @@ class Search extends Component {
           <div className="row">
             <div className="col-md-2 d-none d-md-block bg-light sidebar display" alt="aside">
               <nav className="sidebar-sticky pt-5">
-                <p><ClearRefinements /></p>
-                <p>Filtres :</p>
+                <div>Filtres :</div>
                   <RefinementList
                     attribute="city"
                   />
