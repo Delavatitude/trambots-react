@@ -7,37 +7,24 @@ import { Link } from 'react-router-dom'
 
 class Aera extends Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       places: []
     }
   }
 
-  componentDidMount() {
-    const token = "f83dfac2-6962-4cc8-a33a-70252aacfe67";
-    const endpoint = "api.navitia.io/v1/coverage/"+this.props.coords+"/physical_modes/physical_mode%3ATramway/stop_areas/stop_area"+this.props.code+"/stop_schedules?";
-    //const endpoint2 = "api.navitia.io/v1/coverage/fr-nw/physical_modes/physical_mode%3ATramway/lines/line%3AONA%3A1-0/stop_areas?count=50&";
+  componentDidMount(props) {
 
-    // fetch('https://'+endpoint2, {
-    //   method: 'GET',
-    //   headers: {
-    //     'Authorization': token
-    //   }
-    // }).then(results => {
-    //   return results.json();
-    // }).then(data => {
-    //   data.stop_areas.map((area) => {
-    //     console.log({
-    //       id: area.id,
-    //       name: area.label,
-    //       coords: {
-    //         lat: area.coords.lat,
-    //         lng: area.coords.lon
-    //       }
-    //     });
-    //   })
-    // })
+    if(typeof this.props.coords !== "undefined") {
+      localStorage.setItem( 'coords', this.props.coords );
+      localStorage.setItem( 'code', this.props.code);
+    };
+    let coords = localStorage.getItem( 'coords' );
+    let code = localStorage.getItem( 'code' );
+
+    const token = "f83dfac2-6962-4cc8-a33a-70252aacfe67";
+    const endpoint = "api.navitia.io/v1/coverage/"+coords+"/physical_modes/physical_mode%3ATramway/stop_areas/stop_area"+code+"/stop_schedules?";
 
     fetch('https://'+endpoint, {
       method: 'GET',
@@ -68,19 +55,8 @@ class Aera extends Component {
             )
           } else {
             return (
-              <div className="col-md-6 float-left">
-                <div className="card border-bottom rounded-0 mt-3">
-                  <div className="card-header">
-                    <div className="violet">{area.stop_point.label}</div>
-                  </div>
-                  <div className="card-body">
-                    <p><i className="rouge fas fa-angle-double-right"></i> {area.display_informations.direction}</p>
-                    <p><i className="text-success fas fa-clock"></i>
-                      <span> Terminus</span>
-                    </p>
-                  </div>
-                </div>
-              </div>
+               <div>
+               </div>
             )
           }
       })
@@ -91,14 +67,19 @@ class Aera extends Component {
   }
 
   render() {
-    let coordonnees = this.props.coords.split(";");
+    if(typeof this.props.coords !== "undefined") {
+      localStorage.setItem( 'coords', this.props.coords );
+    };
+    let coords = localStorage.getItem( 'coords' );
+
+    let coordonnees = coords.split(";");
     let lng = Number(coordonnees[0]);
     let lat = Number(coordonnees[1]);
 
     return (
         <div className="h100">
           <nav className="navbar navbar-fixed-top navbar-dark bg-dark fixed">
-            <div class="container-fluid">
+            <div className="container-fluid">
               <Link to={'/'}>
                 <i className="orange fas fa-angle-left"></i>
               </Link>

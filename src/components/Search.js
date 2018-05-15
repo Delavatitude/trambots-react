@@ -38,7 +38,7 @@ class Search extends Component {
               <p className="card-text"><img src={location} alt="geoloc" /> : {hit.city} </p>
               <p className="card-text"><img src={navigation} alt="nav"/> : {hit.mode}</p>
               <p className="card-text">Ligne : <img className="image_ligne" src={hit.image_ligne} alt="ligne"/></p>
-                <Link to={{ pathname: pathAera, code: hit.code }} >
+                <Link to={{ pathname: pathAera, code: hit.code, coords: hit.lat+';'+hit.lng}} >
                   <p className="read-more" >Voir horaires<i className="fa fa-angle-double-right ml-2"></i></p>
                 </Link>
             </div>
