@@ -35,8 +35,8 @@ class Search extends Component {
           <div className="card">
             <h6 className="card-header">{hit.stop}</h6>
             <div className="card-body">
-              <p className="card-text"><img src={location} alt="geoloc" /> : {hit.city} </p>
-              <p className="card-text"><img src={navigation} alt="nav"/> : {hit.mode}</p>
+              <p className="card-text"><i className="fas fa-1x fa-compass orange" size="5" alt="geoloc" />  : {hit.city} </p>
+              <p className="card-text"><i className="fas fa-1x fa-chevron-circle-right green" alt="nav"/> : {hit.mode}</p>
               <p className="card-text">Ligne : <img className="image_ligne" src={hit.image_ligne} alt="ligne"/></p>
                 <Link to={{ pathname: pathAera, code: hit.code, coords: hit.lat+';'+hit.lng}} >
                   <p className="read-more" >Voir horaires<i className="fa fa-angle-double-right ml-2"></i></p>
@@ -57,6 +57,7 @@ class Search extends Component {
                 <div>Filtres :</div>
                   <RefinementList
                     attribute="city"
+                    showMore={true}
                   />
                 <div className="border-top mt-2 pt-2">Data inventory of <a href="http://www.facebots.fr/">facebots.fr</a></div>
               </nav>
