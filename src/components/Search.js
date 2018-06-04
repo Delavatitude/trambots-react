@@ -35,8 +35,8 @@ class Search extends Component {
           <div className="card">
             <h6 className="card-header">{hit.stop}</h6>
             <div className="card-body">
-              <p className="card-text"><i className="fas fa-1x fa-compass orange" size="5" alt="geoloc" />  : {hit.city} </p>
-              <p className="card-text"><i className="fas fa-1x fa-chevron-circle-right green" alt="nav"/> : {hit.mode}</p>
+              <p className="card-text"><i className="fas fa-1x fa-compass orange" size="5" alt={hit.city} />  : {hit.city} </p>
+              <p className="card-text"><i className="fas fa-1x fa-chevron-circle-right green" alt={hit.mode}/> : {hit.mode}</p>
               <p className="card-text">Ligne : <img className="image_ligne" src={hit.image_ligne} alt="ligne"/></p>
                 <Link to={{ pathname: pathAera, code: hit.code, coords: hit.lat+';'+hit.lng, city: hit.city}} >
                   <p className="read-more" >Voir horaires<i className="fa fa-angle-double-right ml-2"></i></p>

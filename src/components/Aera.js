@@ -26,7 +26,7 @@ class Aera extends Component {
     let city = localStorage.getItem( 'city' );
 
     const token = "f83dfac2-6962-4cc8-a33a-70252aacfe67";
-    const endpoint = "api.navitia.io/v1/coverage/"+coords+"/physical_modes/physical_mode%3ATramway/stop_areas/stop_area"+code+"/stop_schedules?";
+    const endpoint = "api.navitia.io/v1/coverage/"+coords+"/physical_modes/physical_mode:Tramway/stop_areas/stop_area"+code+"/stop_schedules?";
     fetch('https://'+endpoint, {
       method: 'GET',
       headers: {
@@ -37,7 +37,7 @@ class Aera extends Component {
     }).then(data => {
       let places = data.stop_schedules.map((area) => {
           if (area.date_times.length > 0) {
-            const urlImg = "http://facebots.fr/TramBots/img/ligne/"+city+"/"+area.route.line.code+".jpg";
+            const urlImg = "http://facebots.fr/TramBots/img/ligne/"+city+"/"+area.route.line.code+".png";
             return(
               <div className="col-md-12 float-left">
                 <div className="card border-bottom rounded-0 mt-3">
