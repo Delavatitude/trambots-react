@@ -84,11 +84,11 @@ class Aera extends Component {
     return (
         <div className="h100">
           <nav className="navbar navbar-fixed-top navbar-dark bg-dark fixed">
-            <div className="container-fluid">
+            <div className="container-fluid decorationNone">
               <Link to={'/'}>
                 <i className="orange fas fa-angle-left"></i>
               </Link>
-              <span className="orange navbar-brand">TramBots</span>
+              <span className="orange navbar-brand"><a className="orange" href="/">TramBots</a></span>
             </div>
           </nav>
 
