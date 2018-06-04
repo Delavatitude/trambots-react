@@ -21,7 +21,7 @@ class Header extends Component {
           </div>
           <div className="mr-3px decorationNone">
             <a href="/" className="orange display float-right mr-3 mt-1">TramBots</a>
-            <a href="http://facebots.fr/TramBots/FAQ" target="_blank"><i class="far fa-2x fa-question-circle orange float-right mr-3"></i></a>
+            <a href="http://facebots.fr/TramBots/FAQ" target="_blank" alt="FAQ TramBots" title="FAQ TramBots"><i class="far fa-2x fa-question-circle orange float-right mr-3" title="FAQ TramBots" alt="FAQ TramBots"></i></a>
           </div>
         </nav>
       </header>
