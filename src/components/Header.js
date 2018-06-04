@@ -19,7 +19,10 @@ class Header extends Component {
               translations={{placeholder: 'Rechercher un arrêt !'}}
             />
           </div>
-          <a href="/" className="navbar-brand orange ml-md-3 display">TramBots</a>
+          <div className="mr-3px">
+            <a href="/" className="orange display float-right mr-3 mt-1">TramBots</a>
+            <a href="http://facebots.fr/TramBots/FAQ" target="_blank"><i class="far fa-2x fa-question-circle orange float-right mr-3"></i></a>
+          </div>
         </nav>
       </header>
     );

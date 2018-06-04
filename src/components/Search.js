@@ -38,7 +38,7 @@ class Search extends Component {
               <p className="card-text"><i className="fas fa-1x fa-compass orange" size="5" alt="geoloc" />  : {hit.city} </p>
               <p className="card-text"><i className="fas fa-1x fa-chevron-circle-right green" alt="nav"/> : {hit.mode}</p>
               <p className="card-text">Ligne : <img className="image_ligne" src={hit.image_ligne} alt="ligne"/></p>
-                <Link to={{ pathname: pathAera, code: hit.code, coords: hit.lat+';'+hit.lng}} >
+                <Link to={{ pathname: pathAera, code: hit.code, coords: hit.lat+';'+hit.lng, city: hit.city}} >
                   <p className="read-more" >Voir horaires<i className="fa fa-angle-double-right ml-2"></i></p>
                 </Link>
             </div>
@@ -53,11 +53,15 @@ class Search extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col-md-2 d-none d-md-block bg-light sidebar display" alt="aside">
-              <nav className="sidebar-sticky pt-5">
-                <div>Filtres :</div>
+              <nav className="sidebar-sticky pt-3">
+                <div>Villes :</div>
                   <RefinementList
                     attribute="city"
                     showMore={true}
+                  />
+                <div className="pt-2">Moyen de transport :</div>
+                  <RefinementList
+                    attribute="mode"
                   />
                 <div className="border-top mt-2 pt-2">Data inventory of <a href="http://www.facebots.fr/">facebots.fr</a></div>
               </nav>

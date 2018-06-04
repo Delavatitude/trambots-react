@@ -11,7 +11,7 @@ const Main = () => (
       <Route path = '/home' component={Home}/>
       <Route path='/stop/:label' render={props =>
         <div className="h100">
-          <Aera label={props.match.params.label} code={props.location.code} coords={props.location.coords}/>
+          <Aera label={props.match.params.label} code={props.location.code} coords={props.location.coords} city={props.location.city}/>
         </div> }
       />
     </Switch>
