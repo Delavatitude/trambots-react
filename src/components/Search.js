@@ -63,14 +63,14 @@ class Search extends Component {
                   <RefinementList
                     attribute="mode"
                   />
-                <div className="border-top mt-2 pt-2">Data inventory of <a href="http://www.facebots.fr/">facebots.fr</a></div>
+                <div className="border-top mt-2 pt-2">Data inventory of <a href="http://www.facebots.fr/" target="_Blank" alt="Facebots" title="Facebots.fr">facebots.fr</a></div>
               </nav>
             </div>
 
             <div className="col-md- ml-sm-auto col-lg-10 pt-3 px-4">
                 <div className="row">
                   <div className="col-md-12 text-secondary text-center">
-                    <p>Contactez <a href="https://m.me/trambots">TramBots</a> sur Messenger !</p>
+                    <p>Contactez <a href="https://m.me/trambots?ref=TramBots.fr">TramBots</a> sur Messenger !</p>
                   </div>
                   <div className="col-md-12 ml-sm-auto">
                     <Hits hitComponent={Product} />
