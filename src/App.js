@@ -12,6 +12,8 @@ class App extends Component {
 		      pageId="1842256066012403"
 		      appId="1831084163805835"
 		      htmlRef="site"
+		      logged_in_greeting="Hi! Coucou toi 😜"
+  			  logged_out_greeting="Hi! Coucou toi 😜"
 		    />
 		</div>
     );
