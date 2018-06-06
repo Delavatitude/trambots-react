@@ -20,6 +20,10 @@ class Header extends Component {
             />
           </div>
           <div className="mr-3px decorationNone">
+            <div className="fb-like mr-3 fblike-mt" data-href="http://www.facebook.com/TramBots/" 
+             data-layout="button_count" data-action="like" data-size="large" 
+             data-show-faces="false" data-share="false">
+            </div>
             <a href="/" className="orange display float-right mr-3 mt-1">TramBots</a>
             <a href="http://facebots.fr/TramBots/FAQ" target="_blank" alt="FAQ TramBots" title="FAQ TramBots"><i class="far fa-2x fa-question-circle orange float-right mr-3" title="FAQ TramBots" alt="FAQ TramBots"></i></a>
           </div>
