@@ -9,15 +9,16 @@
     <meta property="og:title" content="TramBots"/>
     <meta property="og:type" content="website"/>
     <meta property="og:url" content="http://trambots.fr/"/>
-    <meta property="og:image" content="./trambot.png"/>
-    <meta property="og:description" content="Platforme d'horaires multimodal. TramBots.fr"/>
+    <meta property="fb:admins" content="1386648334" />
+    <meta property="og:image" content="http://facebots.fr/TramBots/img/logo2.png"/>
+    <meta property="og:description" content="Première platforme d'horaires multimodal. L'info trafic en temps réel sur TramBots.fr"/>
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@facebotsmesseng">
     <meta name="twitter:title" content="TramBots">
-    <meta name="twitter:description" content="Platforme d'horaires multimodal. TramBots.fr">
+    <meta name="twitter:description" content="Première platforme d'horaires multimodal. L'info trafic en temps réel sur TramBots.fr">
     <meta name="twitter:creator" content="@facebots">
     <!-- Twitter Summary card images must be at least 200x200px -->
-    <meta name="twitter:image" content="./trambot.png">
+    <meta name="twitter:image" content="http://facebots.fr/TramBots/img/logo2.png">
 
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -53,10 +54,29 @@
 
       gtag('config', 'UA-120361373-1');
     </script>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '241561416604863');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=241561416604863&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+
   </head>
   <body>
     <noscript>
-      You need to enable JavaScript to run this app.
+      Vous devez activer le JavaScript pour voir l'app.<br>You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
     <!--
