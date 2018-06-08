@@ -29,7 +29,7 @@ class Search extends Component {
       const stop = hit.stop;
       const re = / /gi;
       const urlStop = stop.replace(re, '_');
-      const pathAera = '/stop/'+urlStop+'/'+hit.lat+';'+hit.lng;
+      const pathAera = '/stop/'+urlStop;
       return (
         <div className=" card-item float-left">
           <div className="card">
@@ -38,7 +38,7 @@ class Search extends Component {
               <p className="card-text"><i className="fas fa-1x fa-compass orange" size="5" alt={hit.city} />  : {hit.city} </p>
               <p className="card-text"><i className="fas fa-1x fa-chevron-circle-right green" alt={hit.mode}/> : {hit.mode}</p>
               <p className="card-text">Ligne : <img className="image_ligne" src={hit.image_ligne} alt="ligne"/></p>
-                <Link to={{ pathname: pathAera, code: hit.code, coords: hit.lat+';'+hit.lng, city: hit.city}} >
+                <Link to={{ pathname: pathAera, code: hit.code, coords: hit.lat+';'+hit.lng, city: hit.city, image_ligne:hit.image_ligne }} >
                   <p className="read-more" >Voir horaires<i className="fa fa-angle-double-right ml-2"></i></p>
                 </Link>
             </div>
@@ -69,8 +69,8 @@ class Search extends Component {
 
             <div className="col-md- ml-sm-auto col-lg-10 pt-3 px-4">
                 <div className="row">
-                  <div className="col-md-12 text-secondary text-center">
-                    <p>Contactez <a href="https://m.me/trambots?ref=TramBots.fr">TramBots</a> sur Messenger !</p>
+                  <div className="col-md-12 text-secondary text-center decorationNone">
+                    <p>Contactez <a href="https://m.me/trambots?ref=TramBots.fr">TramBots</a> sur Messenger ! <i class="fab fa-facebook-messenger blue"></i></p>
                   </div>
                   <div className="col-md-12 ml-sm-auto">
                     <Hits hitComponent={Product} />

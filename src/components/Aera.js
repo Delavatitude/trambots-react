@@ -20,39 +20,43 @@ class Aera extends Component {
       localStorage.setItem( 'coords', this.props.coords );
       localStorage.setItem( 'code', this.props.code);
       localStorage.setItem( 'city', this.props.city);
+      localStorage.setItem( 'image_ligne', this.props.image_ligne);
     };
     let coords = localStorage.getItem( 'coords' );
     let code = localStorage.getItem( 'code' );
     let city = localStorage.getItem( 'city' );
+    let image_ligne = localStorage.getItem( 'image_ligne' );
 
     const token = "f83dfac2-6962-4cc8-a33a-70252aacfe67";
-    const endpoint = "api.navitia.io/v1/coverage/"+coords+"/physical_modes/physical_mode:Tramway/stop_areas/stop_area"+code+"/stop_schedules?";
-    fetch('https://'+endpoint, {
+    const endpoint = "trambots.fr/api/"+city+"/stop_area/"+code;
+    fetch('http://'+endpoint, {
       method: 'GET',
       headers: {
-        'Authorization': token
+        // 'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
       }
     }).then(results => {
       return results.json();
     }).then(data => {
-      let places = data.stop_schedules.map((area) => {
+      let places = data.map((area) => {
           if (area.date_times.length > 0) {
-            const urlImg = "http://facebots.fr/TramBots/img/ligne/"+city+"/"+area.route.line.code+".png";
+            const urlImg = image_ligne;
             return(
               <div className="col-md-12 float-left">
                 <div className="card border-bottom rounded-0 mt-3">
                   <div className="card-header">
                     <div className="row">
-                      <div className="col-md-10 violet">{area.stop_point.label}</div>
-                      <div className="col-md-2"><img className="float-right y30px" src={urlImg}></img></div>
+                      <div className="col-md-10 violet">{area.name}</div>
+                      <div className="col-md-2"><img className="float-right y30px" src={image_ligne}></img></div>
                     </div>
                   </div>
                   <div className="card-body">
-                    <p><i className="rouge fas fa-angle-double-right"></i> {area.display_informations.direction}</p>
+                    <p><i className="rouge fas fa-angle-double-right"></i> {area.direction}</p>
                     <p><i className="text-success fas fa-clock"></i>
-                      <span> <Moment fromNow ago>{area.date_times[0].date_time}</Moment></span> -
-                      <span> <Moment fromNow ago>{area.date_times[1].date_time}</Moment></span> -
-                      <span> <Moment fromNow ago>{area.date_times[2].date_time}</Moment></span>
+                      <span> <Moment fromNow ago>{area.date_times[0]}</Moment></span> -
+                      <span> <Moment fromNow ago>{area.date_times[1]}</Moment></span> -
+                      <span> <Moment fromNow ago>{area.date_times[2]}</Moment></span>
                     </p>
                   </div>
                 </div>
