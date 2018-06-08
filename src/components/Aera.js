@@ -32,7 +32,6 @@ class Aera extends Component {
     fetch('http://'+endpoint, {
       method: 'GET',
       headers: {
-        // 'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
         'Accept': 'application/json'
       }

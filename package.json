@@ -13,6 +13,7 @@
     "react-dom": "^16.3.1",
     "react-google-maps": "^9.4.5",
     "react-instantsearch": "^5.0.3",
+    "react-messenger-customer-chat": "^0.6.2",
     "react-moment": "^0.7.0",
     "react-responsive-modal": "^2.0.1",
     "react-router": "^4.2.0",
@@ -21,7 +22,7 @@
     "sugar": "^2.0.4",
     "write-file-p": "^1.0.6"
   },
-  "homepage":"./build/",
+  "homepage": "./build/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

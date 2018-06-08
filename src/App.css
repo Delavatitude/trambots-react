@@ -24,6 +24,10 @@ html, body, main
   box-shadow: none;
 }
 
+.fblike-mt {
+  margin-top: 2px;
+}
+
 .fixed {
   position: fixed;
   top: 0;

@@ -10,6 +10,7 @@ import {
 import './../App.css';
 import location from './../img/location.png';
 import navigation from './../img/navigation.png';
+import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 class Search extends Component {
 
@@ -30,6 +31,7 @@ class Search extends Component {
       const re = / /gi;
       const urlStop = stop.replace(re, '_');
       const pathAera = '/stop/'+urlStop;
+      const altImgLigne = hit.city+" Ligne "+hit.ligne;
       return (
         <div className=" card-item float-left">
           <div className="card">
